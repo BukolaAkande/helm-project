@@ -1,0 +1,27 @@
+## @param replicaCount Number of replicas for the NGINX deployment
+replicaCount: 3
+
+## Settings for the NGINX container image
+##
+## @param image.name NGINX container image name to use
+## @param image.tag NGINX container image tag to use
+image:
+  name: nginx
+  tag: "1.29.4"
+
+## NGINX container ports
+##
+## @param containerPort.https The port on which the NGINX container will listen
+containerPorts:
+  http: 80
+
+
+## Settings for the NGINX service
+##
+## @param service.enabled Whether to create/deploy a service for the NGINX deployment
+## @param service.type The type of service in front of the NGINX pods
+## @param service.port The port on which the NGINX service will be exposed/receiving requests
+service:
+  enabled: true
+  type: ClusterIP
+  port: 80
